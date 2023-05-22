@@ -39,6 +39,10 @@ body {
   background-color: #fb5;
 }
 
+.textomaior {
+  font-size: 150%;
+}
+
 .menu ul {
   display: flex;
   flex-wrap: wrap;

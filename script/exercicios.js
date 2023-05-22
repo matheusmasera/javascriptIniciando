@@ -139,8 +139,11 @@ const linksInternos = document.querySelectorAll("a");
 console.log(linksInternos);
 
 function addClass(e) {
+  linksInternos.forEach((item) => {
+    item.classList.remove("ativo");
+  });
   e.preventDefault();
-  e.currentTarget.classList.toggle('teste');
+  e.currentTarget.classList.add("ativo");
 }
 
 linksInternos.forEach((links) => {
@@ -150,9 +153,23 @@ linksInternos.forEach((links) => {
 // Selecione todos os elementos do site começando a partir do body,
 // ao clique mostre exatamente quais elementos estão sendo clicados
 
+const todosElementos = document.querySelectorAll("body *");
+console.log(todosElementos);
 
-
+todosElementos.forEach((elemento) => {
+  elemento.addEventListener("click", (e) => e.currentTarget.remove());
+});
 // Utilizando o código anterior, ao invés de mostrar no console,
 // remova o elemento que está sendo clicado, o método remove() remove um elemento
 
 // Se o usuário clicar na tecla (t), aumente todo o texto do site.
+
+function keyPress(event) {
+  if (event.key === "t") {
+    const corpo = document.querySelector("body");
+    console.log(corpo);
+    corpo.classList.toggle("textomaior");
+  }
+}
+
+window.addEventListener("keydown", keyPress);
